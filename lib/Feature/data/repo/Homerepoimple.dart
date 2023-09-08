@@ -19,7 +19,7 @@ class Homerepoimple implements Homerepo {
       List<CharacterModel> dataofCharacter = characterList.map((character) => CharacterModel.fromJson(character)).toList();
       return right(dataofCharacter);
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return left(ServerFailuer.fromdioerror(e));
       }
       return left(ServerFailuer(e.toString()));
